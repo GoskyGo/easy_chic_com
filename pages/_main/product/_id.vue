@@ -79,6 +79,8 @@
                         class="f-10 ml-5 semi-bold color-lite">
                         {{ $t('productReview.reviews', {count: reviewCount}) }}
                       </span>
+
+                      
                     </div>
 
                     <div class="devider w-md-100 mtb-15">&nbsp;</div>
@@ -108,14 +110,6 @@
                     >
                       {{ inStock }}
                     </h4>
-
-
-
-
-
-
-
-
                     <div
                       v-if="bundleDeal"
                       class="two-sided mb-15">
@@ -126,9 +120,6 @@
                         {{ bundleDeal.title }}
                       </div>
                     </div>
-
-
-
                     <div
                       v-if="brand"
                       class="two-sided mb-15">

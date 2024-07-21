@@ -22,28 +22,7 @@
       class="image-popup"
       v-outside-click="closePopup"
     >
-      <div
-        v-if="stackedOnResponsive"
-        class="image-popup-icons"
-      >
-        <button
-          class="left-btn fav-btn"
-          @click.prevent="$emit('add-to-wishlist')"
-        >
-          <i
-            :class="isFavourited"
-            class="m-0 icon"
-          />
-        </button>
-        <button
-          class="right-btn share-btn"
-          @click="sharePopOver = !sharePopOver"
-        >
-          <i
-            class="m-0 icon share-icon"
-          />
-        </button>
-      </div>
+      
       <button
         class="right-btn close-btn"
         @click="closePopup"
@@ -113,6 +92,14 @@
               <div
                 class="slider-content-inner"
               >
+                <!-- <img
+                  :id="generateElemId(index)"
+                  class="full-dimen opacity-0"
+                  :data-source="getImageURL(value.image)"
+                  alt="Product image"
+                  height="100"
+                  width="100"
+                /> -->
                 <img
                   :id="generateElemId(index)"
                   class="full-dimen opacity-0"
@@ -145,6 +132,28 @@
           </li>
         </template>
       </image-slider>
+      <div
+        v-if="stackedOnResponsive"
+        class="image-popup-icons"
+      >
+        <button
+          class="left-btn fav-btn"
+          @click.prevent="$emit('add-to-wishlist')"
+        >
+          <i
+            :class="isFavourited"
+            class="m-0 icon"
+          />
+        </button>
+        <button
+          class="right-btn share-btn"
+          @click="sharePopOver = !sharePopOver"
+        >
+          <i
+            class="m-0 icon share-icon"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </template>
