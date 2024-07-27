@@ -1,7 +1,7 @@
 <template>
   <div class="store-info">
     <div class="btn-wrap">
-      <div class="store-mark">
+      <div class="store-mark w-100">
         <!-- <p class="store-name">{{ storeName }}</p>
         <h6 class="store-date">{{$t('store.memberSince')}} <b class="block">{{storeDate}}</b></h6> -->
         <img
@@ -13,14 +13,22 @@
         >
         <h2 class="store-name">{{ storeName }}</h2>
       </div>
-
-      <div class="action-btn">
+      <div class="store-mark">
+           <p class="store-name f-16">55K</p>
+        <h6 class="store-date">Followers</h6>
+      </div>
+      <div class="action-btn store-mark w-100">
         <slot
           name="followBtn"
-        />
+        >
+          <follow-btn 
+           class="visit-btn w-50 "
+          :storeId="store.id"
+          />
+        </slot>
 
         <nuxt-link
-          class="visit-btn ajax-btn"
+          class="visit-btn ajax-btn w-50 "
           :to="storeLink(store)"
         >
           {{$t('store.visitStore')}}
