@@ -39,10 +39,12 @@
       max-width 400px
 
       .detail-image-inner
-        position sticky
-        top 20px
+        // position sticky
+        top 120px
         z-index 1
-
+    .image-width
+      min-width 55%
+      max-width 55%
 .suggested-container
   position relative
   transition all .2s
@@ -121,8 +123,10 @@
     li
       list-style decimal
 
-
-//RESPONSIVE
+@media only screen and (min-width: 1920px)
+  .tile-container .p-tile
+    width: 25%
+    //RESPONSIVE
 @media only screen and (max-width: 1200px)
   .product-detail
     .product-main

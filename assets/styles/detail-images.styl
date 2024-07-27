@@ -1,8 +1,9 @@
 @import "variables.styl";
 
-.scroller-at-left
-  display block !important
-
+// .scroller-at-left
+//   display block !important
+// .detail-image .scroller-at-left
+//   display: flex !important
 .zoomer-base-container
   text-align center
 
@@ -34,11 +35,8 @@
     position static !important
 
     & > img
-      width auto
-      height auto
-      max-width 100%
-      max-height 420px
-      min-height 400px
+      height: 83vh;
+      width: 800px;
 
   .pleceholder-zoomer-base-container
     /*height 550px*/
@@ -49,10 +47,12 @@
     margin 0 -5px
   .pleceholder-thumb-list
   .thumb-list
-    width auto !important
+   
     grid-row-gap 0 !important
     height auto !important
-    display flex !important
+   
+    width: 60px !important;
+    display: block !important;
     justify-content center
 
     .responsive-image
@@ -92,9 +92,22 @@
   left 0 !important
 
 //RESPONSIVE
+
+@media only screen and (min-width: 1920px)  
+  .detail-image .pleceholder-zoomer-base-container > img, .detail-image .zoomer-base-container > img 
+    height: 83vh;
+    max-height: 914px !important;
+    width: 710px;
+@media only screen and (max-width: 1919px) 
+   .detail-image .pleceholder-zoomer-base-container > img, .detail-image .zoomer-base-container > img 
+    height: 145vh;
+    max-height: 914px !important;
+    width: 700px;
+@media only screen and (max-width: 1440px) 
+   .detail-image .pleceholder-zoomer-base-container > img, .detail-image .zoomer-base-container > img 
+    height: 145vh;
+    max-height: 914px !important;
+    width: 700px;
 @media only screen and (max-width: 768px)
   .detail-image
     padding-left 0
-@media only screen and (min-width: 1720px)  
-  .detail-image .pleceholder-zoomer-base-container > img, .detail-image .zoomer-base-container > img
-    width 350px

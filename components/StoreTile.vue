@@ -1,9 +1,17 @@
 <template>
   <div class="store-info">
     <div class="btn-wrap">
-      <div class="">
-        <p class="store-name">{{ storeName }}</p>
-        <h6 class="store-date">{{$t('store.memberSince')}} <b class="block">{{storeDate}}</b></h6>
+      <div class="store-mark">
+        <!-- <p class="store-name">{{ storeName }}</p>
+        <h6 class="store-date">{{$t('store.memberSince')}} <b class="block">{{storeDate}}</b></h6> -->
+        <img
+          class="logo-imge-custome"
+              :src="imageURL({'image': site_setting.header_logo})"
+              :alt="$t('footer.siteLogo')"
+              height="40"
+              width="139"
+        >
+        <h2 class="store-name">{{ storeName }}</h2>
       </div>
 
       <div class="action-btn">
@@ -28,6 +36,7 @@
   import util from "../mixin/util";
   import AjaxButton from "./AjaxButton";
   import FollowBtn from "./FollowBtn";
+    import { mapGetters, mapActions} from 'vuex'
 
   export default {
     name: 'StoreTile',
@@ -55,6 +64,7 @@
       storeDate(){
         return moment(this.store?.created_at).format('MMM DD, YYYY')
       },
+      ...mapGetters('common', ['site_setting', 'setting', 'topBanner', 'headerLinks']),
     },
     methods: {
     },

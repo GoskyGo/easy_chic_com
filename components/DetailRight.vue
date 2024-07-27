@@ -1,5 +1,5 @@
 <template>
-  <div class="detail-right">
+  <div class="detail-right custome-css">
     <div class="sticky-right">
       <div class="content">
         <h2 class="price-wrapper mb-5">
