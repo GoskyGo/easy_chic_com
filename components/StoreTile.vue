@@ -14,8 +14,8 @@
         <h2 class="store-name">{{ storeName }}</h2>
       </div>
       <div class="store-mark">
-           <p class="store-name f-16">55K</p>
-        <h6 class="store-date">Followers</h6>
+           <p class="store-name f-16 mr-15 ml-20">55K</p>
+        <h5 class="store-date">Followers</h5>
       </div>
       <div class="action-btn store-mark w-100">
         <slot
