@@ -11,24 +11,29 @@
               height="40"
               width="139"
         >
-        <h2 class="store-name">{{ storeName }}</h2>
+        <div class="store-mark wrap">
+          <h2 class="store-name">{{ storeName }}</h2>
+          <div class="store-mark">
+          
+            <h5 class="store-date">Followers:</h5>
+            <p class="store-name f-10 mr-15 ml-20">55K</p>
+          </div>
+         
       </div>
-      <div class="store-mark">
-           <p class="store-name f-16 mr-15 ml-20">55K</p>
-        <h5 class="store-date">Followers</h5>
       </div>
+      
       <div class="action-btn store-mark w-100">
         <slot
           name="followBtn"
         >
           <follow-btn 
-           class="visit-btn w-50 "
+           class="visit-btn w-50 custome-btn-follow mr-10"
           :storeId="store.id"
           />
         </slot>
 
         <nuxt-link
-          class="visit-btn ajax-btn w-50 "
+          class="visit-btn ajax-btn w-50 custome-btn-follow ml-10"
           :to="storeLink(store)"
         >
           {{$t('store.visitStore')}}
@@ -66,6 +71,7 @@
     computed: {
 
       storeName(){
+        
         return this.store?.name
       },
 
@@ -74,6 +80,7 @@
       },
       ...mapGetters('common', ['site_setting', 'setting', 'topBanner', 'headerLinks']),
     },
+    
     methods: {
     },
     async mounted() {
