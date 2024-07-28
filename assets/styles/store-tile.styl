@@ -24,12 +24,13 @@
   display: flex
   align-items: center;
   width: 100%;
+  font-family: system-ui;
   .logo-imge-custome
     width: 70px;
     height: 70px;
     object-fit: initial;
     border: 1px solid #ddd;
-    margin-right: 20px;
+    margin-right: 5px;
     padding: 19px 4px;
 .store-info
   padding 10px 15px 15px
@@ -61,5 +62,9 @@
 
     span
       margin-left 10px
-
+@media only screen and (min-width: 1920px)
+  .store-mark
+    .logo-imge-custome
+      margin-right: 20px;
+ 
 

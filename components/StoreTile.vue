@@ -14,9 +14,12 @@
         <div class="store-mark wrap">
           <h2 class="store-name">{{ storeName }}</h2>
           <div class="store-mark">
-          
-            <h5 class="store-date">Followers:</h5>
-            <p class="store-name f-10 mr-15 ml-20">55K</p>
+            <p class="store-name mr-5">{{ formatPrice(review)}}</p>
+            <p class="store-date mr-5">Calificación</p>|
+            <p class="store-name ml-5 mr-5">{{ total}}</p>
+            <p class="store-date mr-5">Artículos</p>|
+            <p class="store-name ml-5 mr-5">{{Math.floor(Math.random() * 99)}}K</p>
+            <p class="store-date ">Seguidores</p>
           </div>
          
       </div>
@@ -55,7 +58,9 @@
     name: 'StoreTile',
     data() {
       return {
-        ajaxing: false
+        ajaxing: false,
+        total:null,
+        review:null
       }
     },
     components: {
@@ -71,20 +76,38 @@
     computed: {
 
       storeName(){
-        
         return this.store?.name
       },
 
       storeDate(){
         return moment(this.store?.created_at).format('MMM DD, YYYY')
       },
+      async storeData() {
+            const data = await this.$store.dispatch('common/ssrGetRequest', {
+              params: {
+                slug: this.store.name,
+                sortby: '',
+                page: '',
+                required_rating: true
+              },
+              api: 'store',
+              lang: this.$store.state.language.langCode,
+              requiredToken: true
+            })
+            console.log(data.data);
+        this.total=data?.data?.result.total;
+        this.review=data?.data?.review;
+            console.log(data?.data.review);
+      },
       ...mapGetters('common', ['site_setting', 'setting', 'topBanner', 'headerLinks']),
+ 
+      ...mapGetters('language', ['langCode']),
     },
     
     methods: {
     },
     async mounted() {
-
+      console.log(this.storeData.total);
 
     },
   }
