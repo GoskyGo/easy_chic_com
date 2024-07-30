@@ -5,8 +5,7 @@
         <client-only>
           <div
             class="hide-md mx-h-100"
-            @mouseleave="showSliderMessage = false"
-            @mouseover="showSliderMessage = true"
+         
             @click.prevent="imagePopupOpen"
           >
             <ProductZoomer
@@ -30,21 +29,6 @@
               @close-popup="closePopup"
               @add-to-wishlist="$emit('add-to-wishlist')"
             />
-          <p
-            v-if="loaded"
-            class="mt-5 pb-15 center-text lh-30 hide-md"
-          >
-            <span
-              v-if="!showSliderMessage"
-            >
-              {{ $t('productImage.rollOver') }}
-            </span>
-            <span v-else>
-              {{ $t('productImage.extendedView') }}
-            </span>
-          </p>
-
-
           <!-- <template
              slot="placeholder"
            >
