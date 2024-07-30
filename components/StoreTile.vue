@@ -14,17 +14,19 @@
         <div class="store-mark wrap">
           <h2 class="store-name">{{ storeName }}</h2>
           <div class="store-mark">
-            <p class="store-name mr-5">{{ formatPrice(review)}}</p>
-            <p class="store-date mr-5">Calificación</p>|
-            <p class="store-name ml-5 mr-5">{{ total}}</p>
-            <p class="store-date mr-5">Artículos</p>|
-            <p class="store-name ml-5 mr-5">{{Math.floor(Math.random() * 99)}}K+</p>
-            <p class="store-date ">Seguidores</p>
+      
+            <p class="store-date mr-5">Calificación:</p>
+            <p class="store-date mr-5">{{ formatPrice(review)}}</p>
+          
+            <p class="store-date mr-5"> Artículos:</p>  <p class="store-date ml-5 mr-5">{{ total}}</p>
+            <p class="store-date "> Seguidores:</p>
+            <p class="store-date ml-5 mr-5">{{Math.floor(Math.random() * 99)}}K+</p>
+          
           </div>
          
       </div>
       </div>
-      
+   <p class="shop-discription">{{discription}}</p>
       <div class="action-btn store-mark w-100">
         <slot
           name="followBtn"
@@ -60,7 +62,8 @@
       return {
         ajaxing: false,
         total:null,
-        review:null
+        review:null,
+        discription:null,
       }
     },
     components: {
@@ -94,10 +97,12 @@
               lang: this.$store.state.language.langCode,
               requiredToken: true
             })
-            console.log(data.data);
+      
         this.total=data?.data?.result.total;
         this.review=data?.data?.review;
-            console.log(data?.data.review);
+        this.discription=data?.data.store.meta_description;
+        // console.log(data?.data.store.meta_description);
+           
       },
       ...mapGetters('common', ['site_setting', 'setting', 'topBanner', 'headerLinks']),
  

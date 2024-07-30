@@ -26,8 +26,8 @@
   width: 100%;
   font-family: system-ui;
   .logo-imge-custome
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     object-fit: initial;
     border: 1px solid #ddd;
     margin-right: 5px;
@@ -46,11 +46,17 @@
     justify-content space-between
 
   .store-name
-    white-space nowrap
-    overflow hidden
-    text-overflow ellipsis
-    max-width 100%
-    font-weight 600
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    grid-gap: .1067rem;
 
   .store-date
     letter-spacing 0
@@ -62,9 +68,18 @@
 
     span
       margin-left 10px
+.shop-discription
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    color: #797878;
 @media only screen and (min-width: 1920px)
   .store-mark
     .logo-imge-custome
       margin-right: 20px;
+@media only screen and (max-width: 576px)
+  .store-mark
+    font-size: 1em;
  
 
