@@ -176,7 +176,6 @@
           lang: store.state.language.langCode,
           requiredToken: true
         })
-
         if (data?.status !== 200) {
           return error({statusCode: 404, message: i18n.t('categoryListingLayout.noItemFound')})
         }

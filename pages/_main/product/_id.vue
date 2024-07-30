@@ -46,6 +46,23 @@
                         {{ $t('productReview.reviews', { count: reviewCount }) }}
                       </span>
                     </div>
+                    <h2 class="price-wrapper mb-5">
+                      <span
+                        class="color-deep price"
+                      >
+                        <price-format
+                          :price="productPrice"
+                        />
+                      </span>
+                      <span
+                        class="strike-through f-7"
+                        v-if="prevPrice"
+                      >
+                        <price-format
+                          :price="prevPrice"
+                        />
+                      </span>
+                    </h2>
                     <div class="devider w-md-100 mtb-15">&nbsp;</div>
                     <div v-if="endTime" class="flex sided warning-msg ptb-10 plr-15 mb-15 wrap gap-10">
                       <h5 class="color-inherit">
@@ -329,7 +346,7 @@ export default {
     bundleDeal() {
       return this.product?.bundle_deal
     },
-    /*productPrice() {
+    productPrice() {
       console.log(this.productInventory?.inventory_attributes?.length)
       if (this.productInventory?.inventory_attributes?.length > 0 && this.productInventory?.price > 0) {
         return this.productInventory?.price
@@ -337,7 +354,7 @@ export default {
       return this.product.price > 0
         ? this.product.price : this.product.offered > 0
           ? this.product.offered : this.product.selling
-    },*/
+    },
     isInStock() {
       return this.optionChange ? this.productInventory?.quantity > 0 : this.product.in_stock
     },

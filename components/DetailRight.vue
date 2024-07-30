@@ -2,7 +2,7 @@
   <div class="detail-right custome-css">
     <div class="sticky-right">
       <div class="content">
-        <h2 class="price-wrapper mb-5">
+        <!-- <h2 class="price-wrapper mb-5">
           <span
             class="color-deep price"
           >
@@ -18,7 +18,7 @@
               :price="prevPrice"
             />
           </span>
-        </h2>
+        </h2> -->
         <div>
 
           <span
