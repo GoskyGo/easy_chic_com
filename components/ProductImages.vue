@@ -5,8 +5,8 @@
         <client-only>
           <div
             class="hide-md mx-h-100"
-         
             @click.prevent="imagePopupOpen"
+            @mousemove="eventDisable"
           >
             <ProductZoomer
               ref="productZoomer"
@@ -14,6 +14,7 @@
               :base-zoomer-options="zoomerOptions"
               class="mx-h-100"
               :class="{'arrow-hide': !isArrowVisible}"
+         
             />
           </div>
 
@@ -186,6 +187,11 @@
           url: imageLink
         }
       },
+      eventDisable(evt){
+        this.$nextTick(() => {
+          this.shouldShow = false;
+        });
+      }
     },
     async mounted() {
 
