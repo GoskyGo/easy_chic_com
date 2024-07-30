@@ -1,0 +1,4 @@
+{
+    "git.terminalGitEditor": true,
+    "terminal.integrated.defaultProfile.windows": "Git Bash"
+}

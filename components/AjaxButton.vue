@@ -1,7 +1,7 @@
 <template>
   <button
     v-if="type === 'Submit'"
-    class="ajax-btn"
+    class="ajax-btn custome-btn"
     :aria-label="buttonText"
     :disabled="disable || disabled"
     :type="type"
@@ -16,7 +16,7 @@
   <button
     v-else
     @click.prevent="$emit('clicked')"
-    class="ajax-btn"
+    class="ajax-btn custome-btn"
     :disabled="disable || disabled"
     :type="type"
     :aria-label="buttonText"

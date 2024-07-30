@@ -99,7 +99,7 @@
   color primary-color
 
 .color-deep
-  color primary-deep
+  color #000000
 
 button.color-deep
   &:hover
@@ -239,6 +239,7 @@ label.card.active
 
 .mx-w-600x
   max-width 600px
+
 
 .cp
   cursor pointer
@@ -522,7 +523,9 @@ input.no-control[type=number]
   -webkit-line-clamp 4
 
 .price
-  font-weight 600
+    color: inherit;
+    font-family: Arial Black;
+    font-weight: 700;
 
 
 .strike-through
@@ -948,6 +951,8 @@ input.no-control[type=number]
 
 .pr-80
   padding-right 80px !important
+.pr-120
+  padding-right 12px !important
 
 .ptb-5
   padding-top 5px !important
@@ -1192,9 +1197,19 @@ input.no-control[type=number]
 
 .hide
   display none
-// @media only screen and (min-width: 1920px)
-//   .mn-h-945px 
-//       min-height: 700px;
+@media only screen and (min-width: 1920px)
+  .mx-w-450px
+    max-width: 420px !important;
+    margin-left: 40px;
+  .custome-product-tile
+    font-size: 14px;
+    font-weight: 400;
+    position: relative;
+    text-transform: none;
+    word-break: break-word;
+  .color-success 
+    color: #000301;
+
   
 /* RESPONSIVE */
 @media only screen and (max-width: 1200px)

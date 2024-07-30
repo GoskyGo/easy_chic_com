@@ -36,8 +36,8 @@
                     </div>
                   </div>
 
-                  <div class="pl-30 pr-80 pl-md grow mn-h-945px">
-                    <h1 class="f-10">
+                  <div class="pl-md grow mn-h-945px mx-w-450px">
+                    <h1 class="f-10 custome-product-tile">
                       {{ productTitle }}
                     </h1>
                     <div class="mt-10">

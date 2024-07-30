@@ -18,7 +18,7 @@
             <p class="store-date mr-5">Calificación</p>|
             <p class="store-name ml-5 mr-5">{{ total}}</p>
             <p class="store-date mr-5">Artículos</p>|
-            <p class="store-name ml-5 mr-5">{{Math.floor(Math.random() * 99)}}K</p>
+            <p class="store-name ml-5 mr-5">{{Math.floor(Math.random() * 99)}}K+</p>
             <p class="store-date ">Seguidores</p>
           </div>
          
