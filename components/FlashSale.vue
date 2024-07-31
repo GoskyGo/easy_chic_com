@@ -47,9 +47,9 @@
               <image-slider
                 v-if="flashSale.public_products && flashSale.public_products.length"
                 :image-count="flashSale.public_products.length"
-                :per-view="7"
+                :per-view="5"
                 :gap="20"
-                :responsive="[5, 4, 3, 2, 1]"
+                :responsive="[4, 4, 3, 2, 1]"
                 @loaded="glideLoaded"
               >
                 <template v-slot:content>
