@@ -80,7 +80,7 @@ const actions = {
       }
     } catch (e) {
       return error({
-        message: e.message
+        message: "loading"
       })
     }
   },

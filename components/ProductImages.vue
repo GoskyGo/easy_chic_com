@@ -145,6 +145,7 @@
     directives: {},
     computed: {
       videoThumb() {
+        console.log(this.zoomImageList);
         return this.product?.video_thumb || ''
       },
       isSmallerDevice() {
@@ -156,6 +157,7 @@
     },
     methods: {
       zoomActiveChange(index) {
+      
         if(this.zoomImageList?.thumbs && this.zoomImageList.thumbs[index]){
           this.$refs?.imagePopup?.clickOnThumb(index)
           this.$refs.productZoomer.chooseThumb(this.zoomImageList.thumbs[index],{ type: null})
