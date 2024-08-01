@@ -12,7 +12,7 @@
 
 
       <div class="detail-menu hide-sm" v-if="currentCategories && currentCategories.length">
-        <div class=" container-fluid">
+        <div class=" container-fluid  container-fluid-products" >
           <div class="mlr--15">
             <nuxt-link v-for="(value, i) in currentCategories" :title="value.title" :to="categoryLink(value, category)"
               :key="i">
