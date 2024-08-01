@@ -111,10 +111,6 @@
     
     methods: {
     },
-    async mounted() {
-      console.log(this.storeData.total);
-
-    },
   }
 </script>
 

@@ -347,7 +347,6 @@ export default {
       return this.product?.bundle_deal
     },
     productPrice() {
-      console.log(this.productInventory?.inventory_attributes?.length)
       if (this.productInventory?.inventory_attributes?.length > 0 && this.productInventory?.price > 0) {
         return this.productInventory?.price
       }

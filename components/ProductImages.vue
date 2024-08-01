@@ -145,7 +145,6 @@
     directives: {},
     computed: {
       videoThumb() {
-        console.log(this.zoomImageList);
         return this.product?.video_thumb || ''
       },
       isSmallerDevice() {

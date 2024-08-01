@@ -295,7 +295,6 @@
         //return `${this.$t('listingLayout.loading')}...`
       },
       currentItems() {
-        console.log(this.products);
         return this.products?.data || null
       },
       totalPage() {

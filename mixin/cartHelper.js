@@ -76,7 +76,6 @@ export default {
       }
 
 
-      console.log(this.productInventory)
       if (Object.values(this.productInventory).length === 0) {
         const attr = this.product?.attribute.map(i=>{
           return i?.title
