@@ -10,7 +10,7 @@
   display flex
   align-items center
   border 1px solid #ddd
-  border-radius 8px
+  border-radius 0px
 
   &:hover
     background #ddd
@@ -19,7 +19,8 @@
     background #fff
 .custome-btn-follow
   background #ffffff
-  border-radius 60px
+  padding: 0px
+
 .store-mark
   display: flex
   align-items: center;
@@ -46,17 +47,19 @@
     justify-content space-between
 
   .store-name
-    white-space: nowrap;
+    display: flex;
+    color: #000000;
+    align-items: center;
+    grid-gap: 0.1067rem;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 100%;
-    font-weight: 600;
-    font-size: 14px;
-    color: #333;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    grid-gap: .1067rem;
+    white-space: nowrap;
+    margin-bottom: 8px;
+    font-family: Arial, Helvetica, sans-serif !important;
 
   .store-date
     letter-spacing 0
@@ -68,6 +71,12 @@
 
     span
       margin-left 10px
+  .about-store
+    font-weight: 600;
+    font-size: 20px;
+    margin: 20px 10px 20px 5px;
+    font-family: Arial, Helvetica, sans-serif !important;
+    
 .shop-discription
     -webkit-line-clamp: 1;
     overflow: hidden;
@@ -78,6 +87,10 @@
   .store-mark
     .logo-imge-custome
       margin-right: 20px;
+  .p-0
+    padding 0px
+  .gap-10
+    gap: 10px;
 @media only screen and (max-width: 576px)
   .store-mark
     font-size: 1em;
