@@ -22,8 +22,11 @@
   cursor pointer
   border-radius border-radius
   border 1px solid rgba(0, 0, 0, 0)
-
+  padding: 7px;
   &:hover
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, .12);
+    border-radius: 0px;
+    margin-top: 1px;
     .img-wrapper
       & > .compare-btn
         opacity 1
@@ -67,7 +70,7 @@
       span
         line-height 1
 .tile-container .p-tile .img-wrapper
-    margin 5px 0
+    margin: 0px 0 5px 0;
     position relative
     height 40vh
 
@@ -95,7 +98,6 @@
   .p-tile
     width 16.66%
     min-width 16.66%
-    padding 0 0px
     margin-bottom 15px
 
 //RESPONSIVE
@@ -105,7 +107,7 @@
     width 20%
 
     .img-wrapper
-      height 37vh
+      height 40vh
   .glide__slides li .p-tile .img-wrapper
     height 30vh
   .area-content .tile-container .p-tile .img-wrapper 
@@ -117,10 +119,10 @@
       width 20%
 
 @media only screen and (max-width: 1600px)
-   .product-list .main-content .tile-container .p-tile 
+    .product-list .main-content .tile-container .p-tile 
       min-width 25%
       width 25%
-
+      
       .img-wrapper
         height 50vh
     .glide__slides li .p-tile .img-wrapper

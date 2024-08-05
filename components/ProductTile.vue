@@ -57,7 +57,7 @@
           <span class="f-10 color-lite">
             {{ $t('productReview.reviews', {count: product.review_count}) }}</span>
         </span>
-        <span class="flex wrap start">
+        <span class="flex wrap start custome_price">
           <h6 class="price-wrapper">
             <span
               class="strike-through"

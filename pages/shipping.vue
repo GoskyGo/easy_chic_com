@@ -75,7 +75,7 @@
                   </div>
                 </div>
                 <div class="flex gap-15">
-                  <div v-if="countryList" class="input-wrap flex-1">
+                  <!-- <div v-if="countryList" class="input-wrap flex-1">
                     <label>
                       {{ $t("addressPopup.country") }}
                     </label>
@@ -88,7 +88,7 @@
                       :searching="true"
                       @clicked="selectCountry"
                     />
-                  </div>
+                  </div> -->
 
                   <div
                     class="input-wrap flex-1"
@@ -660,6 +660,7 @@ export default {
           ? this.countryList[this.addressData.country].states
           : "";
         this.addressData.state = this.location.region;
+        console.log(this.countryList);
       }
     },
     async deleting(address) {
@@ -695,6 +696,7 @@ export default {
     ...mapActions("cart", ["getCartByUser", "updateCartShipping"]),
   },
   async mounted() {
+  
     try {
       if (!this.countryList || !this.phoneList) {
         this.loading = true;
@@ -734,6 +736,7 @@ export default {
     if (!this.addressData.country) {
       this.settingCountry();
     }
+  
   },
   async asyncData({ store, $auth, error }) {
     try {

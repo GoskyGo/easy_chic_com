@@ -46,7 +46,7 @@
                         {{ $t('productReview.reviews', { count: reviewCount }) }}
                       </span>
                     </div>
-                    <h2 class="price-wrapper mb-5">
+                    <h2 class="price-wrapper mb-5 individual-product">
                       <span
                         class="color-deep price"
                       >
