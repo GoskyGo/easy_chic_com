@@ -62,6 +62,7 @@
                   to="/seller/register"
                   class="flex gap-5"
                 >
+                <i class="icon store-icon"></i>
                   {{ $t('date.bav') }}
                 </nuxt-link>
                 <span>|</span>
