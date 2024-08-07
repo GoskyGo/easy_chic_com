@@ -609,7 +609,6 @@ export default {
           ? this.countryList[this.addressData.country].states
           : "";
         this.addressData.state = this.location.region;
-        console.log(this.countryList);
       }
     },
     async deleting(address) {

@@ -60,13 +60,15 @@
             requiredToken: true
           })
 
-          this.ajaxing = false
+          
           if (data.status === 200) {
             this.$emit('change-following')
           }
+          
         } catch (e) {
           return this.$nuxt.error(e)
         }
+        this.ajaxing = false
       },
       ...mapActions('common', ['postRequest']),
     },

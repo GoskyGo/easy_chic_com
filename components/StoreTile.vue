@@ -84,9 +84,7 @@ export default {
   },
 
   methods: {
-    update_follow() {
-      this.storeData();
-    },
+   
     async storeData() {
       const data = await this.$store.dispatch('common/ssrGetRequest', {
         params: {
@@ -105,6 +103,9 @@ export default {
       this.follow_count = data?.data.store.follow_count ? data?.data.store.follow_count : 0;
       this.following = data?.data?.following;
 
+    },
+    update_follow() {
+      this.storeData();
     },
   },
 }
