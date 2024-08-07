@@ -61,7 +61,6 @@
           })
 
           this.ajaxing = false
-
           if (data.status === 200) {
             this.$emit('change-following')
           }

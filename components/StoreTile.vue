@@ -17,7 +17,7 @@
             <p class="store-date mr-5"> Artículos:</p>
             <p class="store-date ml-5 mr-5">{{ total }}</p>
             <p class="store-date "> Seguidores:</p>
-            <p class="store-date ml-5 mr-5">{{ Math.floor(Math.random() * 99) }}K+</p>
+            <p class="store-date ml-5 mr-5">{{ follow_count<1000 ? follow_count : Math.floor(follow_count/1000) + "K+" }}</p>
 
           </div>
 
@@ -53,6 +53,7 @@ export default {
       total: null,
       review: null,
       discription: null,
+      follow_count:0
     }
   },
   components: {
@@ -87,10 +88,12 @@ export default {
         lang: this.$store.state.language.langCode,
         requiredToken: true
       })
-
+      console.log(data?.data);
+      
       this.total = data?.data?.result.total ? data?.data?.result.total : "" ;
       this.review = data?.data?.review;
       this.discription = data?.data.store.meta_description ? data?.data.store.meta_description : "" ;
+      this.follow_count= data?.data.store.follow_count ? data?.data.store.follow_count : 0 ;
 
     },
     ...mapGetters('common', ['site_setting', 'setting', 'topBanner', 'headerLinks']),

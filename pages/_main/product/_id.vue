@@ -490,8 +490,6 @@ export default {
   async asyncData({ store, route, $auth, error }) {
    
     try {
-      console.log("test");
-      
       await store.dispatch('detail/fetchProduct', {
         params: {
           id: route.params.id,
