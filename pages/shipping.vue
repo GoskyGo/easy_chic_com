@@ -29,15 +29,15 @@
               :layer="true"
             >
               <template v-slot:content>
-                <div class="flex block-xxs gap-15">
+               
                   <div
-                    class="input-wrap flex-1"
+                    class="input-wrap w-50"
                     :class="{ invalid: !addressData.name && hasAddressErrors }"
                   >
                     <label>
-                      {{ $t("addressPopup.name") }}
+                      Nombre
                     </label>
-                    <input type="text" v-model="addressData.name" />
+                    <input type="text" v-model="addressData.fname" />
                     <span
                       class="error"
                       v-if="!addressData.name && hasAddressErrors"
@@ -49,10 +49,20 @@
                       }}
                     </span>
                   </div>
-
+                  <div class="input-wrap w-50">
+                    <label>
+                      Apellidos
+                    </label>
+                    <input
+                     class="mb-10"
+                      type="text"
+                      v-model="addressData.lname"
+                  
+                    />
+                  </div>
                   <div
                     v-if="phoneList"
-                    class="input-wrap flex-1"
+                    class="input-wrap w-50"
                     :class="{ invalid: !addressData.phone && hasAddressErrors }"
                   >
                     <label>{{ $t("addressPopup.phone") }}</label>
@@ -73,25 +83,11 @@
                       }}
                     </span>
                   </div>
-                </div>
-                <div class="flex gap-15">
-                  <!-- <div v-if="countryList" class="input-wrap flex-1">
-                    <label>
-                      {{ $t("addressPopup.country") }}
-                    </label>
-                    <dropdown
-                      :style="{ width: '100%' }"
-                      :selected-key="addressData.country"
-                      :options="countryList"
-                      :position-fixed="false"
-                      key-name="name"
-                      :searching="true"
-                      @clicked="selectCountry"
-                    />
-                  </div> -->
-
+              
+            
+                 
                   <div
-                    class="input-wrap flex-1"
+                    class="input-wrap w-50"
                     :class="{ invalid: !emailValid && hasAddressErrors }"
                   >
                     <label>
@@ -125,14 +121,7 @@
                       {{ $t("contact.invalidEmail") }}
                     </span>
                   </div>
-                </div>
-                <div
-                  class="flex block-xxs gap-15"
-                  :class="{
-                    invalid: !addressData.address_1 && hasAddressErrors,
-                  }"
-                >
-                  <div class="input-wrap flex-1">
+                  <div class="input-wrap w-50">
                     <label>
                       {{ $t("addressPopup.address") }}
                     </label>
@@ -140,41 +129,35 @@
                       class="mb-10"
                       type="text"
                       v-model="addressData.address_1"
-                      :placeholder="$t('addressPopup.addressPlaceholder')"
                     />
                   </div>
-
-                  <div class="input-wrap flex-1">
-                    <label>
-                      {{ $t("addressPopup.address2Placeholder") }}
-                    </label>
-                    <input
-                     class="mb-10"
-                      type="text"
-                      v-model="addressData.address_2"
-                      :placeholder="$t('addressPopup.address2Placeholder')"
-                    />
-                  </div>
-                  <span
-                    class="error"
-                    v-if="!addressData.address_1 && hasAddressErrors"
-                  >
-                    {{
-                      $t("addressPopup.isRequired", {
-                        type: $t("addressPopup.address"),
-                      })
-                    }}
-                  </span>
-                </div>
-                <div class="flex block-xxs gap-15 sided">
                   <div
-                    class="input-wrap"
+                    class="input-wrap w-50"
+                    :class="{ invalid: !addressData.zip && hasAddressErrors }"
+                  >
+                    <label>
+                      {{ $t("addressPopup.zipCode") }}
+                    </label>
+                    <input type="text"  class="mb-10" v-model="addressData.zip" />
+                    <span
+                      class="error"
+                      v-if="!addressData.zip && hasAddressErrors"
+                    >
+                      {{
+                        $t("addressPopup.isRequired", {
+                          type: $t("addressPopup.zipCode"),
+                        })
+                      }}
+                    </span>
+                  </div>
+                  <div
+                    class="input-wrap w-50"
                     :class="{ invalid: !addressData.city && hasAddressErrors }"
                   >
                     <label>
                       {{ $t("addressPopup.city") }}
                     </label>
-                    <input type="text" v-model="addressData.city" />
+                    <input type="text"  class="mb-10" v-model="addressData.city" />
                     <span
                       class="error"
                       v-if="!addressData.city && hasAddressErrors"
@@ -187,29 +170,10 @@
                     </span>
                   </div>
 
-                  <div
-                    class="input-wrap"
-                    :class="{ invalid: !addressData.zip && hasAddressErrors }"
-                  >
+                
+                  <div v-if="Object.keys(states).length" class="input-wrap w-50" >
                     <label>
-                      {{ $t("addressPopup.zipCode") }}
-                    </label>
-                    <input type="text" v-model="addressData.zip" />
-                    <span
-                      class="error"
-                      v-if="!addressData.zip && hasAddressErrors"
-                    >
-                      {{
-                        $t("addressPopup.isRequired", {
-                          type: $t("addressPopup.zipCode"),
-                        })
-                      }}
-                    </span>
-                  </div>
-
-                  <div v-if="Object.keys(states).length" class="input-wrap">
-                    <label>
-                      {{ $t("addressPopup.state") }}
+                      Provincia 
                     </label>
                     <dropdown
                       :selected-key="addressData.state"
@@ -220,14 +184,41 @@
                       @clicked="selectState"
                     />
                   </div>
-                </div>
+              
+               
+                 
+                
 
-                <div class="input-wrap mb-0">
+                
+                  <div class="input-wrap w-50">
+                    <label>
+                      Nombre Edificio / Casa / Oficina
+                    </label>
+                    <input
+                      class="mb-10"
+                      type="text"
+                      v-model="addressData.address_3"
+                    
+                    />
+                  </div>
+
+                  <div class="input-wrap w-50">
+                    <label>
+                      Apartamento / Suite / Piso
+                    </label>
+                    <input
+                     class="mb-10"
+                      type="text"
+                      v-model="addressData.address_4"
+                 
+                    />
+                  </div>
+             
                   <label>
                     {{ $t("shipping.instruction") }}
                   </label>
                   <textarea v-model="addressData.delivery_instruction" />
-                </div>
+               
               </template>
 
               <template v-slot:pop-footer>
@@ -297,52 +288,6 @@
         @go-next="goToCheckout"
       />
     </div>
-
-    <!--<transition name="fade" mode="out-in">
-      <pop-over
-        v-if="cartPopOver"
-        :title="$t('shipping.ordered')"
-        @close="cartPopOver = false"
-        elem-id="cart-pop-over"
-        :layer="true"
-        class="popup-top-auto"
-      >
-        <template
-          v-slot:content
-        >
-          <cart-list
-            :error-from-api="errorFromApi"
-            :cart-products="checkedProduct"
-            :cart-shipping="cartShipping"
-            :current-addresses="currentAddresses"
-            :checked="checked"
-            :is-shipping="true"
-            :address="selectedCurrentAddress"
-            @shipping-changed="cartShipping = $event"
-            @cart-changed="cartChanged"
-          />
-        </template>
-        <template v-slot:pop-footer>
-          <div class="flex j-end gap-10">
-            <button
-              aria-label="submit"
-              class="outline-btn plr-30 plr-sm-15"
-              @click="cartPopOver = false"
-            >
-              {{ $t('addressPopup.cancel') }}
-            </button>
-            <ajax-button
-              class="primary-btn  plr-30 plr-sm-15"
-              type="button"
-              :fetching-data="checkingOut"
-              :loading-text="$t('checkoutRight.submitting')"
-              :text="$t('checkoutRight.proceedToCheckout')"
-              @clicked="goToCheckout"
-            />
-          </div>
-        </template>
-      </pop-over>
-    </transition>-->
   </div>
 </template>
 <script>
@@ -381,14 +326,16 @@ export default {
       hasAddressErrors: false,
       addressData: {
         id: "",
-        name: "",
+        fname: "",
+        lname:"",
         phone: "",
         city: "",
-        country: "",
         state: "",
         zip: "",
         address_1: "",
         address_2: "",
+        address_3: "",
+        address_4: "",
         delivery_instruction: "",
       },
       submittingAddressData: false,
@@ -466,14 +413,16 @@ export default {
       this.addressData = {
         id: "",
         email: "",
-        name: "",
+        fname: "",
+        lname: "",
         phone: "",
         city: "",
-        country: "",
         state: "",
         zip: "",
         address_1: "",
         address_2: "",
+        address_3: "",
+        address_4: "",
         delivery_instruction: "",
       };
     },

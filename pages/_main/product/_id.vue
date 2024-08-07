@@ -488,7 +488,10 @@ export default {
     document.body.classList.remove('detail-page')
   },
   async asyncData({ store, route, $auth, error }) {
+   
     try {
+      console.log("test");
+      
       await store.dispatch('detail/fetchProduct', {
         params: {
           id: route.params.id,
@@ -496,6 +499,7 @@ export default {
         },
         lang: store.state?.language?.langCode,
       })
+
     } catch (e) {
       error(e)
     }
@@ -503,7 +507,8 @@ export default {
   async mounted() {
     this.emptyVoucher()
     this.emptySuggestedProducts()
-
+    
+    console.log(this.$store);
     //Checking if the product has no attribute
     if (this.product?.inventory?.length === 1 && this.product?.inventory[0]?.inventory_attributes?.length === 0) {
 
