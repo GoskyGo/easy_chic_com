@@ -64,38 +64,67 @@
           {{ $t('addressPopup.isRequired', {type: $t('date.sn') }) }}
         </span>
       </div>
+      <div class="input-wrap flex">
 
-      <div
-        class="input-wrap"
-        :class="{invalid: !emailValid && hasFormError}"
-      >
-        <label>{{ $t('addressPopup.email') }}</label>
-
-        <div class="icon-input">
-          <i
-            class="icon email-icon"
-          />
-          <input
-            type="text"
-            v-model="email"
-            :placeholder="$t('contact.your', { type: $t('contact.email') })"
+        <div
+          class="input-wrap  w-50 pr-10 pl-10"
+          :class="{invalid: !phone && hasFormError}"
+        >
+          <label>{{$t('addressPopup.phone')}}</label>
+  
+          <div class="icon-input">
+            <i
+              class="icon phone-icon"
+            />
+            <input
+              type="tel"
+              v-model="phone"
+              placeholder="(123) 456-7890"
+              maxlength="16"
+              minlength="14"
+              @input="enforcePhoneFormat()"
+            >
+          </div>
+          <span
+            class="error"
+            v-if="!phone && hasFormError"
           >
+            {{ $t('addressPopup.isRequired', {type: $t('addressPopup.phone') }) }}
+          </span>
+         
         </div>
-
-        <span
-          class="error"
-          v-if="!email && hasFormError"
+        <div
+          class="input-wrap  w-50 pr-10 pl-10"
+          :class="{invalid: !emailValid && hasFormError}"
         >
-           {{ $t('addressPopup.isRequired', {type: $t('addressPopup.email') }) }}
-        </span>
-        <span
-          class="error"
-          v-else-if="invalidEmail && hasFormError"
-        >
-          {{ $t('contact.invalidEmail') }}
-        </span>
+          <label>{{ $t('addressPopup.email') }}</label>
+  
+          <div class="icon-input">
+            <i
+              class="icon email-icon"
+            />
+            <input
+              type="text"
+              v-model="email"
+              :placeholder="$t('contact.your', { type: $t('contact.email') })"
+            >
+          </div>
+  
+          <span
+            class="error"
+            v-if="!email && hasFormError"
+          >
+             {{ $t('addressPopup.isRequired', {type: $t('addressPopup.email') }) }}
+          </span>
+          <span
+            class="error"
+            v-else-if="invalidEmail && hasFormError"
+          >
+            {{ $t('contact.invalidEmail') }}
+          </span>
+        </div>
+       
       </div>
-
       <div
         class="input-wrap"
         :class="{invalid: !passwordValid && hasFormError}"
@@ -249,6 +278,7 @@
       return {
         name: '',
         email: '',
+        phone: '',
         verified: false,
         code: '',
         password: '',
@@ -258,6 +288,7 @@
         formSubmitting: false,
         hasFormError: false,
         errors: []
+
       }
     },
     components: {
@@ -279,6 +310,10 @@
       passwordValid() {
         return this.password && !this.invalidPassword
       },
+      // invalidPhone(){
+      //   console.log(this.phone);
+        
+      // },
       sellerSignUp(){
         return this.setting?.vendor_registration
       },
@@ -286,6 +321,15 @@
       ...mapGetters('language', ['langCode']),
     },
     methods: {
+      enforcePhoneFormat() {
+        let x = this.phone
+          .replace(/\D/g, "")
+          .match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+
+        this.phone = !x[2]
+          ? x[1]
+          : "(" + x[1] + ") " + x[2] + (x[3] ? "-" + x[3] : "");
+      },
       async verifyEmail() {
         if (this.code) {
           this.formSubmitting = true
@@ -320,7 +364,7 @@
       },
 
       async formSubmit() {
-        if (this.name && this.email && this.password && (this.password === this.confirmPassword)) {
+        if (this.name && this.email && this.password && (this.password === this.confirmPassword) && this.phone) {
           this.formSubmitting = true
           try {
 
@@ -329,12 +373,14 @@
                 name: this.name,
                 store_name: this.storeName,
                 email: this.email,
-                password: this.password
+                password: this.password,
+                phone:this.phone,
               },
               api: 'sellerRegister',
               requiredToken: false
             })
-
+            console.log(data);
+            
             if (data?.status === 200) {
               this.hasFormError = false
               this.errors = []
